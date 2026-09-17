@@ -89,7 +89,7 @@ export default function UploadStep({
     const sample: UploadSelection = {
       source: "sample",
       name: "sample-bill.svg",
-      previewUrl: "/sample-bill.svg",
+      previewUrl: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/sample-bill.svg`,
       sizeLabel: "Sample ER bill · Riverside Regional",
     };
     setSelection(sample);

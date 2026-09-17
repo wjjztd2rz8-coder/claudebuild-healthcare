@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
@@ -41,13 +42,13 @@ export default function Button({
 
   if (href) {
     return (
-      <a
+      <Link
         href={href}
         className={classes}
         {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         {children}
-      </a>
+      </Link>
     );
   }
 
