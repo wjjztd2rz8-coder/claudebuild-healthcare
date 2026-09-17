@@ -1,0 +1,50 @@
+name: Deploy to GitHub Pages
+
+# Publishes the static site (repository root) to GitHub Pages.
+# The app is plain HTML/CSS/JS with no build step, so we upload the
+# repository as-is.
+
+on:
+  push:
+    # Deploys from whichever of these branches you make the default /
+    # Pages source branch. `main` is the usual choice; the claude/*
+    # branch is included so the demo can go live before you merge.
+    branches:
+      - "main"
+      - "claude/wonderful-heisenberg-1eojao"
+  # Allow manual runs from the Actions tab.
+  workflow_dispatch:
+
+# Permissions needed for GitHub Pages deployment.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; skip queued runs in-progress.
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload the whole repository root (the site is static).
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

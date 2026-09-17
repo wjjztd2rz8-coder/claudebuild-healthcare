@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="820" viewBox="0 0 640 820" role="img" aria-label="Sample hospital bill statement">
+  <rect width="640" height="820" fill="#f7f8fa"/>
+  <rect x="0" y="0" width="640" height="96" fill="#1f6f6b"/>
+  <text x="40" y="46" font-family="Georgia, serif" font-size="26" fill="#ffffff" font-weight="bold">Lakeshore Community Hospital</text>
+  <text x="40" y="74" font-family="Arial, sans-serif" font-size="14" fill="#d6efed">1420 N. Lakeside Ave, Chicago, IL 60640 · (312) 555-0148</text>
+  <text x="600" y="46" text-anchor="end" font-family="Arial, sans-serif" font-size="15" fill="#ffffff" font-weight="bold">STATEMENT</text>
+
+  <text x="40" y="140" font-family="Arial, sans-serif" font-size="13" fill="#556">Patient</text>
+  <text x="40" y="160" font-family="Arial, sans-serif" font-size="16" fill="#111" font-weight="bold">Maria R. Gonzalez</text>
+  <text x="40" y="182" font-family="Arial, sans-serif" font-size="13" fill="#556">3312 W. Cortland St, Chicago, IL 60647</text>
+
+  <text x="600" y="140" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#556">Account Number</text>
+  <text x="600" y="160" text-anchor="end" font-family="Arial, sans-serif" font-size="16" fill="#111" font-weight="bold">LCH-2025-448192</text>
+  <text x="600" y="182" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#556">Statement Date: 08/15/2025</text>
+
+  <line x1="40" y1="210" x2="600" y2="210" stroke="#cdd3d8" stroke-width="1"/>
+
+  <text x="40" y="242" font-family="Arial, sans-serif" font-size="13" fill="#556">Service Dates: 07/02/2025 – 07/04/2025</text>
+  <text x="40" y="264" font-family="Arial, sans-serif" font-size="13" fill="#556">Insurance on file: NONE (Self-Pay / Uninsured)</text>
+
+  <rect x="40" y="288" width="560" height="34" fill="#eef2f4"/>
+  <text x="52" y="310" font-family="Arial, sans-serif" font-size="13" fill="#333" font-weight="bold">Description</text>
+  <text x="588" y="310" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#333" font-weight="bold">Amount</text>
+
+  <text x="52" y="348" font-family="Arial, sans-serif" font-size="13" fill="#222">Emergency Department Visit — Level 4</text>
+  <text x="588" y="348" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">$3,240.00</text>
+  <text x="52" y="376" font-family="Arial, sans-serif" font-size="13" fill="#222">Diagnostic Imaging (CT, abdomen)</text>
+  <text x="588" y="376" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">$4,180.00</text>
+  <text x="52" y="404" font-family="Arial, sans-serif" font-size="13" fill="#222">Laboratory — Comprehensive Panel</text>
+  <text x="588" y="404" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">$1,090.00</text>
+  <text x="52" y="432" font-family="Arial, sans-serif" font-size="13" fill="#222">Pharmacy &amp; Supplies</text>
+  <text x="588" y="432" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">$1,340.00</text>
+  <text x="52" y="460" font-family="Arial, sans-serif" font-size="13" fill="#222">Facility Fee</text>
+  <text x="588" y="460" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">$2,890.00</text>
+
+  <line x1="40" y1="484" x2="600" y2="484" stroke="#cdd3d8" stroke-width="1"/>
+  <text x="452" y="512" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#556">Total Charges</text>
+  <text x="588" y="512" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">$12,740.00</text>
+  <text x="452" y="536" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#556">Insurance Payments</text>
+  <text x="588" y="536" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#222">$0.00</text>
+
+  <rect x="360" y="556" width="240" height="46" fill="#fbeceb"/>
+  <text x="372" y="585" font-family="Arial, sans-serif" font-size="15" fill="#8a1c14" font-weight="bold">Balance Due</text>
+  <text x="588" y="585" text-anchor="end" font-family="Arial, sans-serif" font-size="18" fill="#8a1c14" font-weight="bold">$12,740.00</text>
+
+  <line x1="40" y1="632" x2="600" y2="632" stroke="#cdd3d8" stroke-width="1"/>
+  <text x="40" y="662" font-family="Arial, sans-serif" font-size="11" fill="#667">Financial assistance may be available. Contact Patient Financial Services at (312) 555-0148</text>
+  <text x="40" y="680" font-family="Arial, sans-serif" font-size="11" fill="#667">or visit lakeshorecommunity.example/financial-assistance. Please respond within 90 days of this statement.</text>
+  <text x="40" y="710" font-family="Arial, sans-serif" font-size="10" fill="#99a">Illinois Hospital Uninsured Patient Discount Act (210 ILCS 89) discounts may apply to qualifying uninsured patients.</text>
+
+  <text x="320" y="790" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#b9c0c6">SAMPLE — for MediRelief IL demo purposes only. Not a real patient or hospital.</text>
+</svg>

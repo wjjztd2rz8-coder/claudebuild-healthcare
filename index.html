@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0d0f12" />
+    <title>MediRelief IL — Hospital bill relief in seconds</title>
+    <meta
+      name="description"
+      content="Snap a photo of your hospital bill and find out which Illinois financial assistance program can lower it — with the real statutory math shown, in your language."
+    />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="app">
+      <!-- Top bar -->
+      <header class="topbar">
+        <div class="brand">
+          <span class="logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 21s-7-4.5-9.3-9C1.2 9 2.6 5.5 6 5.5c2 0 3.2 1.2 4 2.4.8-1.2 2-2.4 4-2.4 3.4 0 4.8 3.5 3.3 6.5C19 16.5 12 21 12 21z"
+                fill="currentColor"
+              />
+              <path
+                d="M8 12h2l1-2 1.5 3 1-1.5h2.5"
+                stroke="#04211d"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span>MediRelief <span class="il">IL</span></span>
+        </div>
+        <div class="lang">
+          <label for="lang-select" data-i18n="lang_label">Language</label>
+          <select id="lang-select" aria-label="Choose language"></select>
+        </div>
+      </header>
+
+      <!-- Progress stepper -->
+      <nav class="stepper" id="stepper" aria-label="Progress">
+        <div class="step" data-step="upload">
+          <span class="dot"></span><span data-i18n="step_upload">Scan bill</span>
+        </div>
+        <div class="step" data-step="review">
+          <span class="dot"></span><span data-i18n="step_review">Review</span>
+        </div>
+        <div class="step" data-step="result">
+          <span class="dot"></span
+          ><span data-i18n="step_result">Your relief</span>
+        </div>
+        <div class="step" data-step="apply">
+          <span class="dot"></span><span data-i18n="step_apply">Apply</span>
+        </div>
+      </nav>
+
+      <main id="main">
+        <!-- ============================================================
+             SCREEN 1 — UPLOAD
+             ============================================================ -->
+        <section
+          class="screen"
+          id="screen-upload"
+          aria-labelledby="upload-h"
+        >
+          <h1 id="upload-h" data-i18n="upload_title">
+            Snap a photo of your hospital bill
+          </h1>
+          <p class="sub" data-i18n="upload_sub">
+            We read the bill and check which Illinois assistance program can
+            lower it.
+          </p>
+
+          <div id="upload-idle">
+            <div
+              class="dropzone"
+              id="dropzone"
+              role="button"
+              tabindex="0"
+              aria-label="Choose a photo or file of your bill"
+            >
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 16V4m0 0L8 8m4-4 4 4"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <div class="big" data-i18n="upload_cta">
+                Choose a photo or file
+              </div>
+              <div class="small">PNG, JPG, PDF · or drag &amp; drop</div>
+            </div>
+            <input
+              type="file"
+              id="file-input"
+              accept="image/*,application/pdf"
+              capture="environment"
+              class="visually-hidden"
+            />
+
+            <div class="or" data-i18n="upload_or">or</div>
+
+            <button class="btn btn-ghost" id="sample-btn">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect
+                  x="5"
+                  y="3"
+                  width="14"
+                  height="18"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+                <path
+                  d="M8 8h8M8 12h8M8 16h5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span data-i18n="upload_sample">Try it with a sample bill</span>
+            </button>
+
+            <p class="privacy">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 12l2 2 4-4"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span data-i18n="upload_privacy"
+                >Nothing is uploaded to a server. Everything runs in your
+                browser.</span
+              >
+            </p>
+          </div>
+
+          <!-- Scanning animation -->
+          <div id="upload-scanning" class="scanning" style="display: none">
+            <div class="scan-frame">
+              <img
+                id="scan-preview"
+                src="assets/img/sample-bill.svg"
+                alt=""
+              />
+              <div class="scan-line"></div>
+            </div>
+            <p class="scan-status">
+              <span id="scan-text" data-i18n="scanning">Reading your bill…</span
+              ><span class="dotpulse"></span>
+            </p>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             SCREEN 2 — REVIEW / EXTRACTION
+             ============================================================ -->
+        <section class="screen" id="screen-review" aria-labelledby="review-h">
+          <h1 id="review-h" data-i18n="review_title">Here's what we found</h1>
+          <p class="sub" data-i18n="review_sub">
+            Check these details and fix anything that's wrong.
+          </p>
+
+          <div class="card">
+            <div class="field">
+              <label for="f-hospital" data-i18n="field_hospital">Hospital</label>
+              <input type="text" id="f-hospital" autocomplete="off" />
+            </div>
+            <div class="field">
+              <label for="f-balance" data-i18n="field_balance"
+                >Amount you owe</label
+              >
+              <div class="input-money">
+                <input
+                  type="number"
+                  id="f-balance"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.01"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-statement" data-i18n="field_statement"
+                >Statement date</label
+              >
+              <input type="date" id="f-statement" />
+            </div>
+            <div class="field">
+              <label for="f-account" data-i18n="field_account"
+                >Account number</label
+              >
+              <input type="text" id="f-account" autocomplete="off" />
+            </div>
+            <div class="field">
+              <label for="f-patient" data-i18n="field_patient"
+                >Patient name</label
+              >
+              <input type="text" id="f-patient" autocomplete="off" />
+            </div>
+          </div>
+
+          <h2 class="section-head" data-i18n="household_title">
+            A couple of quick questions
+          </h2>
+          <p class="section-note" data-i18n="household_sub">
+            This is how we match you to the right discount.
+          </p>
+
+          <div class="card">
+            <div class="field">
+              <label for="f-household" data-i18n="field_household"
+                >People in your household</label
+              >
+              <div class="stepper-input">
+                <button type="button" id="hh-minus" aria-label="Decrease">
+                  −
+                </button>
+                <input
+                  type="number"
+                  id="f-household"
+                  value="1"
+                  min="1"
+                  max="20"
+                  inputmode="numeric"
+                />
+                <button type="button" id="hh-plus" aria-label="Increase">
+                  +
+                </button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-income" data-i18n="field_income"
+                >Household income each year (before taxes)</label
+              >
+              <div class="input-money">
+                <input
+                  type="number"
+                  id="f-income"
+                  inputmode="numeric"
+                  min="0"
+                  step="100"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label data-i18n="field_uninsured">Are you uninsured?</label>
+              <div
+                class="toggle"
+                id="uninsured-toggle"
+                role="group"
+                aria-label="Are you uninsured?"
+              >
+                <button type="button" data-val="yes" aria-pressed="true">
+                  <span data-i18n="yes">Yes</span>
+                </button>
+                <button type="button" data-val="no" aria-pressed="false">
+                  <span data-i18n="no">No</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" id="calc-btn">
+              <span data-i18n="review_cta">See what I qualify for</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M5 12h14m-6-6 6 6-6 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             SCREEN 3 — RESULT
+             ============================================================ -->
+        <section
+          class="screen"
+          id="screen-result"
+          aria-labelledby="result-headline"
+        >
+          <div class="payoff" id="payoff">
+            <div class="eyebrow" data-i18n="result_calc">
+              Based on Illinois law
+            </div>
+            <div class="bignum" id="bignum" aria-live="polite">
+              <span id="bignum-val">90%</span>
+              <span class="off" id="bignum-off" data-i18n="result_off"
+                >OFF</span
+              >
+            </div>
+            <h1 id="result-headline" class="headline"></h1>
+            <p class="lawref" id="result-lawref"></p>
+          </div>
+
+          <!-- Presumptive / Medicaid badges injected here -->
+          <div id="result-badges"></div>
+
+          <div class="card">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M9 7h6M9 11h6M9 15h4"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+                <rect
+                  x="4"
+                  y="3"
+                  width="16"
+                  height="18"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+              </svg>
+              <span data-i18n="math_title">The math — no guessing</span>
+            </h2>
+            <div id="math-breakdown"></div>
+            <div class="cap-note" id="cap-note" style="display: none"></div>
+          </div>
+
+          <div class="card">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M4 20V10M10 20V4M16 20v-7M22 20H2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span data-i18n="scale_title"
+                >The full Illinois sliding scale</span
+              >
+            </h2>
+            <table class="scale-table" id="scale-table">
+              <thead>
+                <tr>
+                  <th data-i18n="scale_col_income">Income vs. poverty level</th>
+                  <th data-i18n="scale_col_discount">Discount</th>
+                </tr>
+              </thead>
+              <tbody id="scale-body"></tbody>
+            </table>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-ghost" id="result-back">
+              <span data-i18n="result_back">Edit my details</span>
+            </button>
+            <button class="btn btn-primary" id="result-next">
+              <span data-i18n="result_cta">Get my application</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M5 12h14m-6-6 6 6-6 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             SCREEN 4 — APPLY
+             ============================================================ -->
+        <section class="screen" id="screen-apply" aria-labelledby="apply-h">
+          <h1 id="apply-h" data-i18n="apply_title">
+            Your application is ready
+          </h1>
+          <p class="sub" data-i18n="apply_sub">
+            We filled in what we know. Print or save it, then follow the
+            checklist below.
+          </p>
+
+          <!-- Pre-filled application summary (printable) -->
+          <div class="app-doc" id="app-doc"></div>
+
+          <div class="apply-actions btn-row">
+            <button class="btn btn-primary" id="download-btn">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M12 3v12m0 0 4-4m-4 4-4-4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5 21h14"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span data-i18n="apply_download">Download / print application</span>
+            </button>
+          </div>
+
+          <!-- Deadline -->
+          <div class="deadline" id="deadline-box" style="display: none">
+            <div class="ring" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                <circle
+                  cx="12"
+                  cy="13"
+                  r="8"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <path
+                  d="M12 9v4l2.5 2.5M9 3h6"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="dtitle" id="deadline-title"></div>
+              <div class="dsub" id="deadline-sub"></div>
+            </div>
+          </div>
+
+          <h2 class="section-head" data-i18n="checklist_title">
+            What to do next
+          </h2>
+          <div class="card">
+            <ol class="checklist">
+              <li><span data-i18n="checklist_1"></span></li>
+              <li><span data-i18n="checklist_2"></span></li>
+              <li><span data-i18n="checklist_3"></span></li>
+              <li><span data-i18n="checklist_4"></span></li>
+              <li><span data-i18n="checklist_5"></span></li>
+            </ol>
+          </div>
+
+          <div class="card" id="apply-where">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M12 21s-7-5-7-11a7 7 0 1 1 14 0c0 6-7 11-7 11z"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+                <circle
+                  cx="12"
+                  cy="10"
+                  r="2.5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+              </svg>
+              <span data-i18n="where_title">Where to send it</span>
+            </h2>
+            <p
+              style="color: var(--text-muted); font-size: 15px; margin: 0"
+              data-i18n="where_generic"
+            ></p>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-ghost" id="restart-btn">
+              <span data-i18n="restart">Start over</span>
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="disclaimer">
+        <p data-i18n="disclaimer">
+          MediRelief IL is a demo. It gives estimates based on public Illinois
+          law and does not submit anything for you or provide legal advice.
+        </p>
+        <p>
+          <a
+            href="https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=2833"
+            target="_blank"
+            rel="noopener"
+            >210 ILCS 89 — Hospital Uninsured Patient Discount Act</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/eligibility.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
