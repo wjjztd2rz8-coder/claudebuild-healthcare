@@ -69,7 +69,7 @@ function ResultsCardPreview() {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[80vh] overflow-hidden py-20 sm:py-28">
+    <section className="relative flex min-h-[70vh] items-center overflow-hidden py-16 sm:py-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
