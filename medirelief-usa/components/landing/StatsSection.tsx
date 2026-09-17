@@ -36,9 +36,13 @@ export default function StatsSection() {
           {stats.map((stat) => (
             <div
               key={stat.value}
-              className="rounded-2xl border border-card-border bg-white p-6"
+              className="group relative overflow-hidden rounded-2xl border border-card-border bg-white p-6 transition-colors hover:bg-teal-50/40"
             >
-              <p className="text-4xl font-semibold tracking-tight text-primary">
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1 bg-primary"
+              />
+              <p className="text-5xl font-semibold tracking-tight text-primary">
                 {stat.value}
               </p>
               <p className="mt-3 text-sm leading-relaxed text-muted">

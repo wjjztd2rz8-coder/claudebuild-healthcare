@@ -24,7 +24,7 @@ function ResultsCardPreview() {
         aria-hidden="true"
         className="absolute -bottom-10 -left-8 h-48 w-48 rounded-full bg-savings/10 blur-2xl"
       />
-      <div className="relative rounded-2xl border border-card-border bg-white p-6 shadow-xl shadow-stone-900/5">
+      <div className="relative rounded-2xl border border-card-border bg-white p-6 shadow-2xl shadow-stone-900/10 lg:rotate-[-1deg] lg:hover:rotate-0 lg:transition-transform lg:duration-300">
         <div className="flex items-center justify-between">
           <span className="text-xs font-medium uppercase tracking-wide text-muted">
             Your bill review
@@ -69,16 +69,31 @@ function ResultsCardPreview() {
 
 export default function Hero() {
   return (
-    <section className="pt-14 pb-20 sm:pt-20 sm:pb-28">
-      <Container className="grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
+    <section className="relative min-h-[80vh] overflow-hidden py-20 sm:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(currentColor 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          opacity: 0.04,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 top-1/2 h-[36rem] w-[36rem] -translate-y-1/2 translate-x-1/4 rounded-full bg-primary/10 blur-3xl"
+      />
+
+      <Container className="relative grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
         <div>
           <span className="inline-flex items-center rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary ring-1 ring-inset ring-teal-200">
             Free bill check
           </span>
-          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
+          <h1 className="mt-5 text-5xl font-semibold leading-[1.05] tracking-tight text-ink lg:text-6xl">
             Your medical bill is probably wrong. We help you fix it.
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
             Upload your bill. We find billing errors, overcharges, and
             assistance you qualify for. You pay only a share of what you
             save, and nothing if we save you nothing.

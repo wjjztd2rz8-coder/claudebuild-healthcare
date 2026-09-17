@@ -141,3 +141,9 @@ There's no build to run — the workflow uploads the repository root as-is.
 ## License
 
 MIT — see [`LICENSE`](LICENSE).
+
+## MediRelief USA (Next.js prototype)
+
+A separate landing page + worked example (with a mocked bill analysis) for a
+US-focused version of this idea. It lives in `medirelief-usa/`. To run it:
+`cd medirelief-usa && npm install && npm run dev`.
