@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" width="600" height="560" role="img" aria-label="Mock itemized hospital bill from Riverside Regional Medical Center totalling 4,063 dollars">
+  <style>
+    text { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .brand { font-size: 17px; font-weight: 600; fill: #ffffff; }
+    .brandsub { font-size: 10.5px; fill: #99f6e4; letter-spacing: .06em; }
+    .meta { font-size: 10.5px; fill: #57534e; }
+    .metak { font-size: 10.5px; fill: #a8a29e; letter-spacing: .07em; }
+    .head { font-size: 9.5px; fill: #78716c; letter-spacing: .1em; font-weight: 600; }
+    .row { font-size: 11.5px; fill: #1c1917; }
+    .mono { font-size: 11px; fill: #57534e; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .num { font-size: 11.5px; fill: #1c1917; font-variant-numeric: tabular-nums; }
+    .totlabel { font-size: 12px; font-weight: 600; fill: #1c1917; }
+    .tot { font-size: 20px; font-weight: 700; fill: #1c1917; font-variant-numeric: tabular-nums; }
+    .foot { font-size: 9.5px; fill: #a8a29e; }
+  </style>
+
+  <rect width="600" height="560" rx="10" fill="#ffffff"/>
+  <rect width="600" height="560" rx="10" fill="none" stroke="#e7e5e4"/>
+
+  <path d="M0 10a10 10 0 0 1 10-10h580a10 10 0 0 1 10 10v66H0z" fill="#0f766e"/>
+  <g transform="translate(40 30)">
+    <rect width="26" height="26" rx="7" fill="#ffffff" opacity=".18"/>
+    <path d="M13 6.5v13M6.5 13h13" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+  </g>
+  <text x="80" y="42" class="brand">Riverside Regional Medical Center</text>
+  <text x="80" y="58" class="brandsub">ITEMIZED PATIENT STATEMENT</text>
+
+  <text x="40" y="104" class="metak">PATIENT</text>
+  <text x="40" y="120" class="meta">Jordan A. Ellis</text>
+  <text x="230" y="104" class="metak">DATE OF SERVICE</text>
+  <text x="230" y="120" class="meta">July 14, 2026</text>
+  <text x="420" y="104" class="metak">ACCOUNT</text>
+  <text x="420" y="120" class="meta">RRMC-4471902</text>
+
+  <text x="40" y="150" class="metak">DEPARTMENT</text>
+  <text x="40" y="166" class="meta">Emergency Department</text>
+  <text x="230" y="150" class="metak">STATEMENT DATE</text>
+  <text x="230" y="166" class="meta">August 2, 2026</text>
+  <text x="420" y="150" class="metak">DUE</text>
+  <text x="420" y="166" class="meta">September 1, 2026</text>
+
+  <line x1="40" y1="190" x2="560" y2="190" stroke="#e7e5e4"/>
+  <text x="52" y="212" class="head">CODE</text>
+  <text x="132" y="212" class="head">DESCRIPTION</text>
+  <text x="548" y="212" class="head" text-anchor="end">CHARGE</text>
+  <line x1="40" y1="221" x2="560" y2="221" stroke="#e7e5e4"/>
+
+  <text x="52" y="236" class="mono">99284</text>
+  <text x="132" y="236" class="row">ER visit, level 4</text>
+  <text x="548" y="236" class="num" text-anchor="end">1,450.00</text>
+  <rect x="40" y="247" width="520" height="26" fill="#faf9f6"/>
+  <text x="52" y="262" class="mono">70450</text>
+  <text x="132" y="262" class="row">CT head w/o contrast</text>
+  <text x="548" y="262" class="num" text-anchor="end">1,180.00</text>
+  <text x="52" y="288" class="mono">96360</text>
+  <text x="132" y="288" class="row">IV infusion, first hour</text>
+  <text x="548" y="288" class="num" text-anchor="end">310.00</text>
+  <rect x="40" y="299" width="520" height="26" fill="#faf9f6"/>
+  <text x="52" y="314" class="mono">96361</text>
+  <text x="132" y="314" class="row">IV infusion, add'l hour</text>
+  <text x="548" y="314" class="num" text-anchor="end">310.00</text>
+  <text x="52" y="340" class="mono">85025</text>
+  <text x="132" y="340" class="row">CBC w/ differential</text>
+  <text x="548" y="340" class="num" text-anchor="end">85.00</text>
+  <rect x="40" y="351" width="520" height="26" fill="#faf9f6"/>
+  <text x="52" y="366" class="mono">80048</text>
+  <text x="132" y="366" class="row">Basic metabolic panel</text>
+  <text x="548" y="366" class="num" text-anchor="end">95.00</text>
+  <text x="52" y="392" class="mono">J2405</text>
+  <text x="132" y="392" class="row">Ondansetron 4 mg inj</text>
+  <text x="548" y="392" class="num" text-anchor="end">48.00</text>
+  <rect x="40" y="403" width="520" height="26" fill="#faf9f6"/>
+  <text x="52" y="418" class="mono">—</text>
+  <text x="132" y="418" class="row">IV start kit / supplies</text>
+  <text x="548" y="418" class="num" text-anchor="end">65.00</text>
+  <text x="52" y="444" class="mono">—</text>
+  <text x="132" y="444" class="row">ER physician fee (OON)</text>
+  <text x="548" y="444" class="num" text-anchor="end">520.00</text>
+
+  <line x1="40" y1="464" x2="560" y2="464" stroke="#d6d3d1"/>
+  <text x="340" y="492" class="totlabel" text-anchor="end">Total amount due</text>
+  <text x="548" y="494" class="tot" text-anchor="end">$4,063.00</text>
+
+  <line x1="40" y1="520" x2="560" y2="520" stroke="#f5f5f4"/>
+  <text x="40" y="540" class="foot">Sample document for demonstration only — not a real medical bill.</text>
+</svg>
