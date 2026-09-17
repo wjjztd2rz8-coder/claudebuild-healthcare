@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { Suspense, useCallback, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Container from "@/components/Container";
 import Stepper, { type StepId } from "@/components/example/Stepper";
 import UploadStep, {
@@ -9,21 +10,49 @@ import UploadStep, {
 import AnalyzingStep from "@/components/example/AnalyzingStep";
 import ResultsStep from "@/components/example/ResultsStep";
 import { analyzeBill, ANALYSIS_STAGES } from "@/lib/analyzeBill";
+import { sampleAnalysis } from "@/lib/sampleAnalysis";
 import type { BillAnalysis } from "@/lib/types";
 
+/**
+ * Deep links for demos and screenshots:
+ *   /example?demo=results    -> results view with the sample analysis, no delay
+ *   /example?demo=analyzing  -> analyzing view frozen on stage 2
+ *   (no param)               -> normal upload flow
+ */
 export default function ExamplePage() {
-  const [step, setStep] = useState<StepId>("upload");
-  const [message, setMessage] = useState<string>(ANALYSIS_STAGES[0]);
-  const [analysis, setAnalysis] = useState<BillAnalysis | null>(null);
-  const [fileName, setFileName] = useState("your bill");
+  return (
+    <Suspense fallback={<ExampleFlow demo={null} />}>
+      <DeepLinkedFlow />
+    </Suspense>
+  );
+}
+
+function DeepLinkedFlow() {
+  const demo = useSearchParams().get("demo");
+  return (
+    <ExampleFlow
+      demo={demo === "results" || demo === "analyzing" ? demo : null}
+    />
+  );
+}
+
+function ExampleFlow({ demo }: { demo: "results" | "analyzing" | null }) {
+  const [step, setStep] = useState<StepId>(demo ?? "upload");
+  const [message, setMessage] = useState<string>(
+    demo === "analyzing" ? ANALYSIS_STAGES[1] : ANALYSIS_STAGES[0],
+  );
+  const [analysis, setAnalysis] = useState<BillAnalysis | null>(
+    demo === "results" ? sampleAnalysis : null,
+  );
+  const [fileName, setFileName] = useState(
+    demo ? "the sample ER bill" : "your bill",
+  );
   const runId = useRef(0);
 
   const start = useCallback(async (selection: UploadSelection) => {
     const id = ++runId.current;
     setFileName(
-      selection.source === "sample"
-        ? "the sample ER bill"
-        : selection.name,
+      selection.source === "sample" ? "the sample ER bill" : selection.name,
     );
     setMessage(ANALYSIS_STAGES[0]);
     setStep("analyzing");
